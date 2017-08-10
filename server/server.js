@@ -15,15 +15,17 @@ app.use(logRequest);
 io.on('connection', (socket) => {
   console.log('New user connected');
 
-  socket.emit('new-message', {
-    from: 'SomeServer43',
-    text: 'This message originated on the server',
-    cretedAt: new Date().getTime()
-  });
+  // socket.emit('new-message', {
+  //   from: 'SomeServer43',
+  //   text: 'This message originated on the server',
+  //   cretedAt: new Date().getTime()
+  // });
 
-  socket.on('create-message', (msg) => {
-    msg.createdAt = new Date().getTime();
-    console.log('Incomming message: ', msg);
+  socket.on('create-message', ({ text, from }) => {
+    const message = { text, from, createdAt: new Date().getTime() }
+
+    console.log('Incomming message: ', message);
+    io.emit('new-message', message);
   })
 
   socket.on('disconnect', () => {
