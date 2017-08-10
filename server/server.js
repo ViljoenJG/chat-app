@@ -25,12 +25,12 @@ io.on('connection', (socket) => {
 
     console.log('Incomming message: ', message);
     io.emit('new-message', message);
-  })
+  });
 
   socket.on('disconnect', () => {
     console.log('user disconnected from server')
   });
-})
+});
 
 app.use(notFound404);
 app.use(errorHandler);

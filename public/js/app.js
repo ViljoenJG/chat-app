@@ -5,9 +5,9 @@ socket.on('connect', function() {
 });
 
 socket.on('disconnect', function() {
-  console.log('disconnected from server')
+  console.log('disconnected from server');
 });
 
 socket.on('new-message', function(msg) {
-  console.log('message was received', JSON.stringify(msg, null, 2))
+  console.log('message was received', JSON.stringify(msg, null, 2));
 });
