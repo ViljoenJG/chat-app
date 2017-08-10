@@ -15,16 +15,23 @@ app.use(logRequest);
 io.on('connection', (socket) => {
   console.log('New user connected');
 
-  // socket.emit('new-message', {
-  //   from: 'SomeServer43',
-  //   text: 'This message originated on the server',
-  //   cretedAt: new Date().getTime()
-  // });
+  socket.emit('new-message', {
+    from: 'Admin',
+    text: 'Welcome to the chat app',
+    createdAt: new Date().getTime()
+  })
+
+  socket.broadcast.emit('new-message', {
+    from: 'Admin',
+    text: 'New user joined',
+    createdAt: new Date().getTime()
+  })
 
   socket.on('create-message', ({ text, from }) => {
-    const message = { text, from, createdAt: new Date().getTime() }
+    const message = { text, from, createdAt: new Date().getTime() };
 
     console.log('Incomming message: ', message);
+    // socket.broadcast.emit('new-message', message);
     io.emit('new-message', message);
   })
 
