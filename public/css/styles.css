@@ -172,6 +172,10 @@ button:disabled {
   color: #999;
 }
 
+.message__title p {
+  color: #282424;
+}
+
 @media (max-width: 600px) {
   * {
     font-size: 1rem;

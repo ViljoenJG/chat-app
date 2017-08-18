@@ -6,6 +6,7 @@
     <title>Join | ChatApp</title>
 
     <link rel="stylesheet" href="/css/styles.css">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   </head>
   <body class="centered-form">
     <div class="centered-form__form">
@@ -19,12 +20,16 @@
         </div>
         <div class="form-field">
           <label>Room name</label>
-          <input type="text" name="room">
+          <input type="text" name="room" list="roomList">
+          <datalist id="roomList"></datalist>
         </div>
         <div class="form-field">
           <button>Join</button>
         </div>
       </form>
     </div>
+    
+    <script src="/js/libs/jquery-3.2.1.min.js"></script>
+    <script src="./js/index.js"></script>
   </body>
 </html>
