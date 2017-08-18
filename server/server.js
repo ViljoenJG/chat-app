@@ -66,6 +66,10 @@ io.on('connection', (socket) => {
   });
 });
 
+app.get('/roomlist', (req, res) => {
+  res.send(users.getRoomList());
+})
+
 app.use(notFound404);
 app.use(errorHandler);
 
